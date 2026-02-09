@@ -1,6 +1,6 @@
 # Bodhi Research Group Website
 
-A modern, responsive website for the Bodhi Research Group, built with clean HTML, CSS, and JavaScript. Designed in the style of the Applied Antifragility Group website.
+A modern, responsive website for the Bodhi Research Group, built with clean HTML, CSS, and JavaScript. 
 
 ## Features
 
