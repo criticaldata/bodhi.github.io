@@ -72,11 +72,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animations
-document.querySelectorAll('.feature-card, .module-card, .flow-step, .problem-card, .publication-card, .team-member, .code-card, .stat-item').forEach((element, index) => {
+// Observe elements for animations (grouped per section to keep stagger short)
+document.querySelectorAll('.module-card, .flow-step, .problem-card, .publication-card, .code-card').forEach(element => {
     element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(element);
 });
 
