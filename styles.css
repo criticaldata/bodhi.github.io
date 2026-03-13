@@ -973,7 +973,7 @@ body {
 }
 
 .logo-invert {
-    filter: invert(1);
+    mix-blend-mode: multiply;
     max-height: 80px;
     max-width: 160px;
 }
