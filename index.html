@@ -15,14 +15,14 @@
    DESIGN TOKENS
    ══════════════════════════════════════ */
 :root {
-    --c-ink: #0c1222;
-    --c-ink-soft: #2d3a50;
-    --c-ink-muted: #64748b;
-    --c-ink-faint: #94a3b8;
+    --c-ink: #221b14;
+    --c-ink-soft: #4a4034;
+    --c-ink-muted: #7c7163;
+    --c-ink-faint: #a99e8f;
     --c-surface: #ffffff;
     --c-surface-warm: #faf8f5;
-    --c-surface-cool: #f1f5f9;
-    --c-border: #e2e8f0;
+    --c-surface-cool: #f3efe9;
+    --c-border: #e6dfd5;
     --c-border-subtle: #f1eeeb;
     --c-accent: #b44230;
     --c-accent-hover: #943521;
@@ -46,9 +46,9 @@
     --r-lg: 16px;
     --r-xl: 24px;
 
-    --shadow-sm: 0 1px 3px rgba(12,18,34,0.04), 0 1px 2px rgba(12,18,34,0.06);
-    --shadow-md: 0 4px 16px rgba(12,18,34,0.06), 0 1px 3px rgba(12,18,34,0.04);
-    --shadow-lg: 0 12px 40px rgba(12,18,34,0.08), 0 4px 12px rgba(12,18,34,0.04);
+    --shadow-sm: 0 1px 3px rgba(34,27,20,0.04), 0 1px 2px rgba(34,27,20,0.06);
+    --shadow-md: 0 4px 16px rgba(34,27,20,0.06), 0 1px 3px rgba(34,27,20,0.04);
+    --shadow-lg: 0 12px 40px rgba(34,27,20,0.08), 0 4px 12px rgba(34,27,20,0.04);
     --shadow-glow: 0 0 0 1px var(--c-accent-glow), 0 8px 30px var(--c-accent-glow);
 
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,7 +112,7 @@ img { max-width: 100%; display: block; }
 
 .navbar.scrolled {
     border-bottom-color: var(--c-border);
-    box-shadow: 0 1px 12px rgba(12,18,34,0.04);
+    box-shadow: 0 1px 12px rgba(34,27,20,0.04);
 }
 
 .nav-container {
@@ -401,6 +401,10 @@ img { max-width: 100%; display: block; }
     line-height: 1.15;
     letter-spacing: -0.02em;
 }
+
+.stat-item:nth-child(1) .stat-value { color: var(--c-accent); }
+.stat-item:nth-child(2) .stat-value { color: var(--c-green); }
+.stat-item:nth-child(3) .stat-value { color: var(--c-amber); }
 
 .stat-label {
     font-size: 0.82rem;
@@ -2375,7 +2379,7 @@ img { max-width: 100%; display: block; }
         const COLORS = [
             { r: 180, g: 66, b: 48 },
             { r: 22, g: 128, b: 74 },
-            { r: 100, g: 116, b: 139 },
+            { r: 124, g: 112, b: 99 },
             { r: 107, g: 79, b: 63 }
         ];
         const LINK_DIST = 130;
