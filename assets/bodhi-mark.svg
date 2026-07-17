@@ -1,29 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
   <defs>
-    <linearGradient id="leafFill" x1="60" y1="10" x2="60" y2="112" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2fa86b"/>
-      <stop offset="0.55" stop-color="#16804a"/>
-      <stop offset="1" stop-color="#0d5f43"/>
+    <linearGradient id="ensoStroke" x1="14" y1="90" x2="100" y2="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0c1222"/>
+      <stop offset="1" stop-color="#3d4f6e"/>
+    </linearGradient>
+    <linearGradient id="leafFill" x1="78" y1="54" x2="104" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16804a"/>
+      <stop offset="1" stop-color="#2fa86b"/>
     </linearGradient>
   </defs>
-  <!-- stem -->
-  <path d="M60 4 C60 8 60 12 60 17" stroke="#b44230" stroke-width="4.5" stroke-linecap="round"/>
-  <!-- bodhi leaf: cordate body with long drip tip -->
-  <path d="M60 18
-           C 46 6, 22 10, 16 32
-           C 11 52, 34 74, 53 92
-           C 56 96, 58 103, 60 112
-           C 62 103, 64 96, 67 92
-           C 86 74, 109 52, 104 32
-           C 98 10, 74 6, 60 18 Z"
+  <!-- enso: open brush circle, gap at upper right -->
+  <path d="M 86 25
+           A 43 43 0 1 0 102 50"
+        stroke="url(#ensoStroke)" stroke-width="9" stroke-linecap="round"/>
+  <!-- leaf sprouting through the enso opening -->
+  <path d="M 82 56
+           C 76 40, 84 22, 100 12
+           C 106 28, 100 46, 84 56
+           C 83 56.2, 82.5 56.2, 82 56 Z"
         fill="url(#leafFill)"/>
-  <!-- central vein -->
-  <path d="M60 28 C60 50 60 74 60 98" stroke="#eafff2" stroke-width="2.8" stroke-linecap="round" opacity="0.8"/>
-  <!-- side veins -->
-  <path d="M60 38 C51 40 42 44 34 51" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
-  <path d="M60 38 C69 40 78 44 86 51" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
-  <path d="M60 56 C53 59 46 64 40 70" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
-  <path d="M60 56 C67 59 74 64 80 70" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
-  <path d="M60 74 C56 77 52 81 49 85" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
-  <path d="M60 74 C64 77 68 81 71 85" stroke="#eafff2" stroke-width="1.9" stroke-linecap="round" opacity="0.5"/>
+  <!-- leaf midrib -->
+  <path d="M 84 54 C 88 42, 93 28, 99 15" stroke="#eafff2" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <!-- terracotta seed dot at the brush start, the point of inquiry -->
+  <circle cx="102" cy="50" r="5.5" fill="#b44230"/>
 </svg>
