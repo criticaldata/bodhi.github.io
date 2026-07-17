@@ -1,10 +1,11 @@
 <p align="center">
-  <img src="assets/bodhi-mark.svg" alt="BODHI Logo" width="120">
+  <img src="assets/bodhi-mark.svg" alt="BODHI logo, a bodhi tree growing from circuit roots with a golden question mark in its crown" width="220">
 </p>
 
 <h1 align="center">BODHI</h1>
 
-<p align="center"><strong>Bridging, Open, Discerning, Humble, Inquiring</strong></p>
+<p align="center"><strong>Bridging, Open, Discerning, Humble, Inquiring</strong><br>
+<em>The courage to ask before answering.</em></p>
 
 <p align="center">An engineering framework for curiosity driven and humble AI in clinical decision support.<br>
 This repository hosts the project website: <a href="https://criticaldata.github.io/bodhi">criticaldata.github.io/bodhi</a></p>
