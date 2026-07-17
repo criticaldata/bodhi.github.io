@@ -20,22 +20,22 @@
     --c-ink-muted: #64748b;
     --c-ink-faint: #94a3b8;
     --c-surface: #ffffff;
-    --c-surface-warm: #f5f8fb;
+    --c-surface-warm: #faf8f5;
     --c-surface-cool: #f1f5f9;
     --c-border: #e2e8f0;
-    --c-border-subtle: #e9eef5;
-    --c-accent: #1d5a8f;
-    --c-accent-hover: #14446e;
-    --c-accent-soft: #e7f0f8;
-    --c-accent-glow: rgba(29, 90, 143, 0.14);
-    --c-green: #1d6fb8;
-    --c-green-soft: #e6f1fb;
-    --c-blue: #13406e;
-    --c-blue-soft: #e7eff8;
-    --c-amber: #53718f;
-    --c-amber-soft: #eef2f7;
-    --c-purple: #0e2a47;
-    --c-purple-soft: #e4ebf3;
+    --c-border-subtle: #f1eeeb;
+    --c-accent: #b44230;
+    --c-accent-hover: #943521;
+    --c-accent-soft: #fdf0ed;
+    --c-accent-glow: rgba(180, 66, 48, 0.12);
+    --c-green: #16804a;
+    --c-green-soft: #ecfdf3;
+    --c-blue: #64748b;
+    --c-blue-soft: #f1f5f9;
+    --c-amber: #b45f10;
+    --c-amber-soft: #fdf6e9;
+    --c-purple: #6b4f3f;
+    --c-purple-soft: #f5efe9;
 
     --f-display: 'Playfair Display', Georgia, serif;
     --f-body: 'DM Sans', system-ui, sans-serif;
@@ -203,8 +203,8 @@ img { max-width: 100%; display: block; }
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 60% 50% at 15% 20%, rgba(29,90,143,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(74,144,217,0.06) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 50% at 15% 20%, rgba(180,66,48,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(107,79,63,0.05) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -359,9 +359,9 @@ img { max-width: 100%; display: block; }
    ══════════════════════════════════════ */
 .stats-bar {
     padding: 2.75rem 0;
-    background: linear-gradient(115deg, #dcebf7 0%, #ecf4fa 48%, #f8fbfd 100%);
-    border-top: 1px solid #d2e2f0;
-    border-bottom: 1px solid #e2edf6;
+    background: var(--c-surface-warm);
+    border-top: 1px solid var(--c-border-subtle);
+    border-bottom: 1px solid var(--c-border-subtle);
     position: relative;
     overflow: hidden;
 }
@@ -378,7 +378,7 @@ img { max-width: 100%; display: block; }
     text-align: center;
     font-size: 0.78rem;
     font-weight: 500;
-    color: #587da2;
+    color: var(--c-ink-muted);
     letter-spacing: 0.03em;
     text-transform: uppercase;
     margin-bottom: 1.75rem;
@@ -390,14 +390,14 @@ img { max-width: 100%; display: block; }
 }
 
 .stats-grid .stat-item + .stat-item {
-    border-left: 1px solid #d5e3f0;
+    border-left: 1px solid #e6ded4;
 }
 
 .stat-value {
     font-family: var(--f-display);
     font-size: 2.35rem;
     font-weight: 700;
-    color: #0e2a47;
+    color: var(--c-ink);
     line-height: 1.15;
     letter-spacing: -0.02em;
 }
@@ -672,7 +672,7 @@ img { max-width: 100%; display: block; }
 
 .matrix-quadrant:hover,
 .matrix-quadrant:focus-visible {
-    background: rgba(29, 90, 143, 0.08);
+    background: rgba(180, 66, 48, 0.08);
     border-color: var(--c-accent);
 }
 
@@ -750,10 +750,10 @@ img { max-width: 100%; display: block; }
     border-radius: var(--r-lg) var(--r-lg) 0 0;
 }
 
-.module-card.mod-curiosity::before { background: #0e2a47; }
-.module-card.mod-humility::before { background: #13406e; }
-.module-card.mod-creativity::before { background: #1d6fb8; }
-.module-card.mod-sycophancy::before { background: #4a90d9; }
+.module-card.mod-curiosity::before { background: var(--c-accent); }
+.module-card.mod-humility::before { background: var(--c-green); }
+.module-card.mod-creativity::before { background: var(--c-amber); }
+.module-card.mod-sycophancy::before { background: var(--c-purple); }
 
 .module-card:hover {
     transform: translateY(-3px);
@@ -838,8 +838,8 @@ img { max-width: 100%; display: block; }
    NEWS BAR
    ══════════════════════════════════════ */
 .news-bar {
-    background: #e9f1f9;
-    border-bottom: 1px solid #d6e4f1;
+    background: #f7f3ee;
+    border-bottom: 1px solid #ece5dc;
     padding: 0.65rem 0;
 }
 .news-bar-inner {
@@ -853,15 +853,15 @@ img { max-width: 100%; display: block; }
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #13406e;
-    background: #d8e7f4;
+    color: var(--c-accent);
+    background: #f6e3dc;
     border-radius: 4px;
     padding: 0.2rem 0.55rem;
     white-space: nowrap;
 }
 .news-bar-link {
     font-size: 0.875rem;
-    color: #13406e;
+    color: var(--c-ink-soft);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
@@ -1274,7 +1274,7 @@ img { max-width: 100%; display: block; }
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(45,108,181,0.10) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(180,66,48,0.08) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -1594,7 +1594,7 @@ img { max-width: 100%; display: block; }
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(29,90,143,0.07), transparent 45%);
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(180,66,48,0.07), transparent 45%);
     opacity: 0;
     transition: opacity 0.35s ease;
     pointer-events: none;
@@ -1778,19 +1778,19 @@ img { max-width: 100%; display: block; }
                 <h2 class="section-title reveal">Design Principles</h2>
                 <p class="section-subtitle reveal">BODHI is grounded in four principles that guide the design of AI systems with genuine epistemic agency, independent of any specific implementation method.</p>
                 <div class="principles-list">
-                    <div class="principle reveal" style="--p-color: #0e2a47">
+                    <div class="principle reveal" style="--p-color: var(--c-accent)">
                         <div class="principle-name">Curiosity</div>
                         <div class="principle-desc">Systems that actively seek context, ask clarifying questions, and explore alternative hypotheses rather than defaulting to confident answers.</div>
                     </div>
-                    <div class="principle reveal" style="--p-color: #13406e">
+                    <div class="principle reveal" style="--p-color: var(--c-green)">
                         <div class="principle-name">Calibrated Humility</div>
                         <div class="principle-desc">Mechanisms for uncertainty quantification, explicit limitation acknowledgment, and recognition of knowledge boundaries: knowing what you don't know.</div>
                     </div>
-                    <div class="principle reveal" style="--p-color: #1d6fb8">
+                    <div class="principle reveal" style="--p-color: var(--c-amber)">
                         <div class="principle-name">Creative Reasoning</div>
                         <div class="principle-desc">Novel hypothesis generation, divergent thinking, and alternative analytical approaches that go beyond statistical pattern matching.</div>
                     </div>
-                    <div class="principle reveal" style="--p-color: #4a90d9">
+                    <div class="principle reveal" style="--p-color: var(--c-purple)">
                         <div class="principle-name">Anti-Sycophancy</div>
                         <div class="principle-desc">Counteracting RLHF-induced behaviors: agreement bias, overconfidence, hubris, and the tendency to confirm rather than challenge flawed assumptions.</div>
                     </div>
@@ -2381,10 +2381,10 @@ img { max-width: 100%; display: block; }
         const hero = canvas.parentElement;
 
         const COLORS = [
-            { r: 19, g: 64, b: 110 },
-            { r: 29, g: 111, b: 184 },
+            { r: 180, g: 66, b: 48 },
+            { r: 22, g: 128, b: 74 },
             { r: 100, g: 116, b: 139 },
-            { r: 127, g: 179, b: 227 }
+            { r: 107, g: 79, b: 63 }
         ];
         const LINK_DIST = 130;
         let particles = [];
