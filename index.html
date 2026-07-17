@@ -1519,9 +1519,151 @@ img { max-width: 100%; display: block; }
     line-height: 1;
     transform: rotate(90deg);
 }
+
+/* ══════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ══════════════════════════════════════ */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--c-accent) 0%, var(--c-green) 100%);
+    z-index: 1001;
+    border-radius: 0 2px 2px 0;
+    transition: width 0.1s linear;
+}
+
+/* ══════════════════════════════════════
+   FLOATING LEAVES (HERO)
+   ══════════════════════════════════════ */
+.hero-leaves {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-leaf {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    opacity: 0;
+    animation: leafDrift var(--leaf-dur, 16s) ease-in-out var(--leaf-delay, 0s) infinite;
+    will-change: transform, opacity;
+}
+
+.hero-leaf svg { width: 100%; height: 100%; }
+
+@keyframes leafDrift {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10%  { opacity: var(--leaf-op, 0.16); }
+    50%  { transform: translate(var(--leaf-x, 40px), -60px) rotate(28deg); }
+    90%  { opacity: var(--leaf-op, 0.16); }
+    100% { transform: translate(calc(var(--leaf-x, 40px) * 1.6), -130px) rotate(52deg); opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   NAV LOGO MICRO-INTERACTION
+   ══════════════════════════════════════ */
+.logo-icon {
+    transition: transform 0.45s var(--ease-spring);
+    transform-origin: 50% 10%;
+}
+
+.nav-brand:hover .logo-icon {
+    transform: rotate(-10deg) scale(1.08);
+}
+
+/* ══════════════════════════════════════
+   BUTTON SHINE SWEEP
+   ══════════════════════════════════════ */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s var(--ease-out);
+}
+
+.btn-primary:hover::after {
+    left: 130%;
+}
+
+/* ══════════════════════════════════════
+   CARD TILT + POINTER GLOW
+   ══════════════════════════════════════ */
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.tilt-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(180,66,48,0.07), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.tilt-card:hover::after {
+    opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   STAT PULSE UNDERLINE
+   ══════════════════════════════════════ */
+.stat-item {
+    position: relative;
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    bottom: -0.35rem;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 42px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--c-accent), var(--c-green));
+    transition: transform 0.6s var(--ease-out) 0.4s;
+}
+
+.stat-item.visible::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ══════════════════════════════════════
+   REDUCED MOTION
+   ══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    .hero-leaf { animation: none; opacity: 0; }
+    .scroll-progress { transition: none; }
+    .tilt-card { transition: none; }
+    .letter, .title-word, .hero-acronym, .hero-description, .hero-buttons {
+        animation-duration: 0.01s;
+        animation-delay: 0s;
+    }
+}
 </style>
 </head>
 <body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -1549,6 +1691,14 @@ img { max-width: 100%; display: block; }
 
         <!-- HERO -->
         <section class="hero-section" id="home">
+            <div class="hero-leaves" aria-hidden="true">
+                <span class="hero-leaf" style="left:6%;  top:70%; --leaf-dur:17s; --leaf-delay:0s;   --leaf-x:50px;  --leaf-op:0.18;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#16804a"/></svg></span>
+                <span class="hero-leaf" style="left:22%; top:85%; --leaf-dur:21s; --leaf-delay:4s;   --leaf-x:-40px; --leaf-op:0.12;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#2fa86b"/></svg></span>
+                <span class="hero-leaf" style="left:55%; top:78%; --leaf-dur:19s; --leaf-delay:8s;   --leaf-x:35px;  --leaf-op:0.10;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#b44230"/></svg></span>
+                <span class="hero-leaf" style="left:78%; top:88%; --leaf-dur:23s; --leaf-delay:2s;   --leaf-x:-55px; --leaf-op:0.14;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#16804a"/></svg></span>
+                <span class="hero-leaf" style="left:90%; top:65%; --leaf-dur:18s; --leaf-delay:11s;  --leaf-x:30px;  --leaf-op:0.12;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#2fa86b"/></svg></span>
+                <span class="hero-leaf" style="left:40%; top:92%; --leaf-dur:25s; --leaf-delay:6s;   --leaf-x:45px;  --leaf-op:0.09;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#0d5f43"/></svg></span>
+            </div>
             <div class="container">
                 <div class="hero-inner">
                     <div class="hero-content">
@@ -1599,7 +1749,7 @@ img { max-width: 100%; display: block; }
                 <div class="news-bar-inner">
                     <span class="news-bar-label">In the News</span>
                     <a href="https://news.mit.edu/2026/creating-humble-ai-0324" class="news-bar-link" target="_blank" rel="noopener">
-                        MIT News: Creating humble AI &mdash; research aligned with BODHI's epistemic design principles &rarr;
+                        MIT News: Creating humble AI, research aligned with BODHI's epistemic design principles &rarr;
                     </a>
                 </div>
             </div>
@@ -1676,15 +1826,15 @@ img { max-width: 100%; display: block; }
         <section class="how-section" id="framework">
             <div class="container">
                 <h2 class="section-title reveal">Design Principles</h2>
-                <p class="section-subtitle reveal">BODHI is grounded in four principles that guide the design of AI systems with genuine epistemic agency &mdash; independent of any specific implementation method.</p>
+                <p class="section-subtitle reveal">BODHI is grounded in four principles that guide the design of AI systems with genuine epistemic agency, independent of any specific implementation method.</p>
                 <div class="principles-list">
                     <div class="principle reveal" style="--p-color: var(--c-blue)">
                         <div class="principle-name">Curiosity</div>
-                        <div class="principle-desc">Systems that actively seek context, ask clarifying questions, and explore alternative hypotheses &mdash; rather than defaulting to confident answers.</div>
+                        <div class="principle-desc">Systems that actively seek context, ask clarifying questions, and explore alternative hypotheses rather than defaulting to confident answers.</div>
                     </div>
                     <div class="principle reveal" style="--p-color: var(--c-green)">
                         <div class="principle-name">Calibrated Humility</div>
-                        <div class="principle-desc">Mechanisms for uncertainty quantification, explicit limitation acknowledgment, and recognition of knowledge boundaries &mdash; knowing what you don't know.</div>
+                        <div class="principle-desc">Mechanisms for uncertainty quantification, explicit limitation acknowledgment, and recognition of knowledge boundaries: knowing what you don't know.</div>
                     </div>
                     <div class="principle reveal" style="--p-color: var(--c-amber)">
                         <div class="principle-name">Creative Reasoning</div>
@@ -2163,9 +2313,14 @@ img { max-width: 100%; display: block; }
     const sections = document.querySelectorAll('section[id]');
     let ticking = false;
 
+    const scrollProgress = document.getElementById('scrollProgress');
+
     function onScroll() {
         const sy = window.scrollY;
         navbar.classList.toggle('scrolled', sy > 20);
+
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        if (docH > 0) scrollProgress.style.width = (sy / docH * 100) + '%';
 
         const pos = sy + 120;
         sections.forEach(sec => {
@@ -2202,6 +2357,66 @@ img { max-width: 100%; display: block; }
         a.addEventListener('click', function(e) {
             const t = document.querySelector(this.getAttribute('href'));
             if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+    });
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── Count-up animation for stats ──
+    // Parses values like "+16.6%", "d = 16.38", "97.3%" and animates the number.
+    function animateValue(el) {
+        const original = el.textContent;
+        const match = original.match(/(\d+\.?\d*)/);
+        if (!match) return;
+        const target = parseFloat(match[1]);
+        const decimals = (match[1].split('.')[1] || '').length;
+        const duration = 1400;
+        let start = null;
+
+        function tick(ts) {
+            if (!start) start = ts;
+            const p = Math.min((ts - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const current = (target * eased).toFixed(decimals);
+            el.textContent = original.replace(match[1], current);
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = original;
+        }
+        requestAnimationFrame(tick);
+    }
+
+    if (!reducedMotion) {
+        const countObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    animateValue(e.target);
+                    countObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        document.querySelectorAll('.stat-value, .ai-comparison-card__value').forEach(el => countObs.observe(el));
+    }
+
+    // ── Pointer tilt + glow on cards ──
+    const tiltSelectors = '.module-card, .publication-card, .code-card, .problem-card, .ai-comparison-card';
+    document.querySelectorAll(tiltSelectors).forEach(card => {
+        card.classList.add('tilt-card');
+        if (reducedMotion) return;
+
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = e.clientX - r.left;
+            const y = e.clientY - r.top;
+            card.style.setProperty('--mx', (x / r.width * 100) + '%');
+            card.style.setProperty('--my', (y / r.height * 100) + '%');
+            const rx = ((y / r.height) - 0.5) * -4;
+            const ry = ((x / r.width) - 0.5) * 4;
+            card.style.transform = 'perspective(700px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-2px)';
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.style.transform = '';
         });
     });
     </script>
