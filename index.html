@@ -359,7 +359,7 @@ img { max-width: 100%; display: block; }
    ══════════════════════════════════════ */
 .stats-bar {
     padding: 2.75rem 0;
-    background: var(--c-ink);
+    background: linear-gradient(135deg, #0c1222 0%, #0e2219 100%);
     position: relative;
     overflow: hidden;
 }
@@ -369,14 +369,14 @@ img { max-width: 100%; display: block; }
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(180,66,48,0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(29,93,191,0.1) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 90% at 50% 110%, rgba(22,128,74,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 85% -10%, rgba(47,168,107,0.10) 0%, transparent 55%);
     pointer-events: none;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     position: relative;
     text-align: center;
@@ -395,6 +395,10 @@ img { max-width: 100%; display: block; }
 
 .stat-item {
     padding: 0.5rem 0;
+}
+
+.stats-grid .stat-item + .stat-item {
+    border-left: 1px solid rgba(255,255,255,0.08);
 }
 
 .stat-value {
@@ -1342,6 +1346,7 @@ img { max-width: 100%; display: block; }
    ══════════════════════════════════════ */
 @media (max-width: 1024px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .stats-grid .stat-item + .stat-item { border-left: none; }
     .code-grid { grid-template-columns: 1fr; }
     .contact-emails { grid-template-columns: 1fr; }
 }
@@ -1537,32 +1542,14 @@ img { max-width: 100%; display: block; }
 }
 
 /* ══════════════════════════════════════
-   FLOATING LEAVES (HERO)
+   HERO PARTICLE CONSTELLATION
    ══════════════════════════════════════ */
-.hero-leaves {
+.hero-canvas {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-    overflow: hidden;
-}
-
-.hero-leaf {
-    position: absolute;
-    width: 34px;
-    height: 34px;
-    opacity: 0;
-    animation: leafDrift var(--leaf-dur, 16s) ease-in-out var(--leaf-delay, 0s) infinite;
-    will-change: transform, opacity;
-}
-
-.hero-leaf svg { width: 100%; height: 100%; }
-
-@keyframes leafDrift {
-    0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-    10%  { opacity: var(--leaf-op, 0.16); }
-    50%  { transform: translate(var(--leaf-x, 40px), -60px) rotate(28deg); }
-    90%  { opacity: var(--leaf-op, 0.16); }
-    100% { transform: translate(calc(var(--leaf-x, 40px) * 1.6), -130px) rotate(52deg); opacity: 0; }
 }
 
 /* ══════════════════════════════════════
@@ -1653,7 +1640,7 @@ img { max-width: 100%; display: block; }
    REDUCED MOTION
    ══════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-    .hero-leaf { animation: none; opacity: 0; }
+    .hero-canvas { display: none; }
     .scroll-progress { transition: none; }
     .tilt-card { transition: none; }
     .letter, .title-word, .hero-acronym, .hero-description, .hero-buttons {
@@ -1693,14 +1680,7 @@ img { max-width: 100%; display: block; }
 
         <!-- HERO -->
         <section class="hero-section" id="home">
-            <div class="hero-leaves" aria-hidden="true">
-                <span class="hero-leaf" style="left:6%;  top:70%; --leaf-dur:17s; --leaf-delay:0s;   --leaf-x:50px;  --leaf-op:0.18;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#16804a"/></svg></span>
-                <span class="hero-leaf" style="left:22%; top:85%; --leaf-dur:21s; --leaf-delay:4s;   --leaf-x:-40px; --leaf-op:0.12;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#2fa86b"/></svg></span>
-                <span class="hero-leaf" style="left:55%; top:78%; --leaf-dur:19s; --leaf-delay:8s;   --leaf-x:35px;  --leaf-op:0.10;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#b44230"/></svg></span>
-                <span class="hero-leaf" style="left:78%; top:88%; --leaf-dur:23s; --leaf-delay:2s;   --leaf-x:-55px; --leaf-op:0.14;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#16804a"/></svg></span>
-                <span class="hero-leaf" style="left:90%; top:65%; --leaf-dur:18s; --leaf-delay:11s;  --leaf-x:30px;  --leaf-op:0.12;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#2fa86b"/></svg></span>
-                <span class="hero-leaf" style="left:40%; top:92%; --leaf-dur:25s; --leaf-delay:6s;   --leaf-x:45px;  --leaf-op:0.09;"><svg viewBox="0 0 120 120" fill="none"><path d="M60 18 C46 6 22 10 16 32 C11 52 34 74 53 92 C56 96 58 103 60 112 C62 103 64 96 67 92 C86 74 109 52 104 32 C98 10 74 6 60 18 Z" fill="#0d5f43"/></svg></span>
-            </div>
+            <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
             <div class="container">
                 <div class="hero-inner">
                     <div class="hero-content">
@@ -2421,6 +2401,119 @@ img { max-width: 100%; display: block; }
             card.style.transform = '';
         });
     });
+
+    // ── Hero particle constellation ──
+    // A drifting knowledge graph: nodes connect when close, and gently
+    // gravitate toward the pointer.
+    (function() {
+        if (reducedMotion) return;
+        const canvas = document.getElementById('heroCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const hero = canvas.parentElement;
+
+        const COLORS = [
+            { r: 22, g: 128, b: 74 },
+            { r: 180, g: 66, b: 48 },
+            { r: 100, g: 116, b: 139 },
+            { r: 29, g: 93, b: 191 }
+        ];
+        const LINK_DIST = 130;
+        let particles = [];
+        let w = 0, h = 0, dpr = 1;
+        let mouse = { x: -9999, y: -9999 };
+        let running = false, rafId = null;
+
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = hero.offsetWidth;
+            h = hero.offsetHeight;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const count = Math.min(90, Math.floor(w * h / 16000));
+            particles = Array.from({ length: count }, () => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: 1.2 + Math.random() * 2.2,
+                c: COLORS[Math.floor(Math.random() * COLORS.length)]
+            }));
+        }
+
+        function step() {
+            ctx.clearRect(0, 0, w, h);
+
+            for (const p of particles) {
+                const dx = mouse.x - p.x, dy = mouse.y - p.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < 22500) {
+                    const d = Math.sqrt(d2) || 1;
+                    p.vx += (dx / d) * 0.012;
+                    p.vy += (dy / d) * 0.012;
+                }
+                p.vx *= 0.99; p.vy *= 0.99;
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
+                if (p.y < -10) p.y = h + 10; else if (p.y > h + 10) p.y = -10;
+            }
+
+            for (let i = 0; i < particles.length; i++) {
+                const a = particles[i];
+                for (let j = i + 1; j < particles.length; j++) {
+                    const b = particles[j];
+                    const dx = a.x - b.x, dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < LINK_DIST) {
+                        const alpha = (1 - dist / LINK_DIST) * 0.14;
+                        ctx.strokeStyle = 'rgba(' + a.c.r + ',' + a.c.g + ',' + a.c.b + ',' + alpha.toFixed(3) + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            for (const p of particles) {
+                ctx.fillStyle = 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',0.35)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            if (running) rafId = requestAnimationFrame(step);
+        }
+
+        const visObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !running) {
+                    running = true;
+                    rafId = requestAnimationFrame(step);
+                } else if (!e.isIntersecting && running) {
+                    running = false;
+                    if (rafId) cancelAnimationFrame(rafId);
+                }
+            });
+        }, { threshold: 0.05 });
+        visObs.observe(hero);
+
+        hero.addEventListener('pointermove', (e) => {
+            const r = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - r.left;
+            mouse.y = e.clientY - r.top;
+        });
+        hero.addEventListener('pointerleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(resize, 150);
+        });
+        resize();
+    })();
     </script>
 </body>
 </html>
