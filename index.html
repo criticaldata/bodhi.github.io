@@ -30,8 +30,8 @@
     --c-accent-glow: rgba(180, 66, 48, 0.12);
     --c-green: #16804a;
     --c-green-soft: #ecfdf3;
-    --c-blue: #0d5f43;
-    --c-blue-soft: #e8f5ee;
+    --c-blue: #8a3324;
+    --c-blue-soft: #fbeee9;
     --c-amber: #b45f10;
     --c-amber-soft: #fdf6e9;
     --c-purple: #8a3324;
@@ -204,7 +204,7 @@ img { max-width: 100%; display: block; }
     inset: 0;
     background:
         radial-gradient(ellipse 60% 50% at 15% 20%, rgba(180,66,48,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(22,128,74,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 50% 60% at 85% 75%, rgba(217,119,6,0.05) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -750,10 +750,10 @@ img { max-width: 100%; display: block; }
     border-radius: var(--r-lg) var(--r-lg) 0 0;
 }
 
-.module-card.mod-curiosity::before { background: var(--c-blue); }
-.module-card.mod-humility::before { background: var(--c-green); }
+.module-card.mod-curiosity::before { background: var(--c-accent); }
+.module-card.mod-humility::before { background: var(--c-purple); }
 .module-card.mod-creativity::before { background: var(--c-amber); }
-.module-card.mod-sycophancy::before { background: var(--c-purple); }
+.module-card.mod-sycophancy::before { background: #d97706; }
 
 .module-card:hover {
     transform: translateY(-3px);
@@ -1074,7 +1074,7 @@ img { max-width: 100%; display: block; }
 .member-email:hover { text-decoration: underline; }
 
 .member-scholar {
-    color: var(--c-blue);
+    color: var(--c-accent);
     font-size: 0.78rem;
     text-decoration: none;
     display: inline-block;
@@ -1778,11 +1778,11 @@ img { max-width: 100%; display: block; }
                 <h2 class="section-title reveal">Design Principles</h2>
                 <p class="section-subtitle reveal">BODHI is grounded in four principles that guide the design of AI systems with genuine epistemic agency, independent of any specific implementation method.</p>
                 <div class="principles-list">
-                    <div class="principle reveal" style="--p-color: var(--c-blue)">
+                    <div class="principle reveal" style="--p-color: var(--c-accent)">
                         <div class="principle-name">Curiosity</div>
                         <div class="principle-desc">Systems that actively seek context, ask clarifying questions, and explore alternative hypotheses rather than defaulting to confident answers.</div>
                     </div>
-                    <div class="principle reveal" style="--p-color: var(--c-green)">
+                    <div class="principle reveal" style="--p-color: var(--c-purple)">
                         <div class="principle-name">Calibrated Humility</div>
                         <div class="principle-desc">Mechanisms for uncertainty quantification, explicit limitation acknowledgment, and recognition of knowledge boundaries: knowing what you don't know.</div>
                     </div>
@@ -1790,7 +1790,7 @@ img { max-width: 100%; display: block; }
                         <div class="principle-name">Creative Reasoning</div>
                         <div class="principle-desc">Novel hypothesis generation, divergent thinking, and alternative analytical approaches that go beyond statistical pattern matching.</div>
                     </div>
-                    <div class="principle reveal" style="--p-color: var(--c-purple)">
+                    <div class="principle reveal" style="--p-color: #d97706">
                         <div class="principle-name">Anti-Sycophancy</div>
                         <div class="principle-desc">Counteracting RLHF-induced behaviors: agreement bias, overconfidence, hubris, and the tendency to confirm rather than challenge flawed assumptions.</div>
                     </div>
@@ -2381,10 +2381,10 @@ img { max-width: 100%; display: block; }
         const hero = canvas.parentElement;
 
         const COLORS = [
-            { r: 22, g: 128, b: 74 },
             { r: 180, g: 66, b: 48 },
+            { r: 138, g: 51, b: 36 },
             { r: 100, g: 116, b: 139 },
-            { r: 180, g: 95, b: 16 }
+            { r: 217, g: 119, b: 6 }
         ];
         const LINK_DIST = 130;
         let particles = [];
