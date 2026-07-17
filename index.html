@@ -848,6 +848,11 @@ img { max-width: 100%; display: block; }
 }
 .news-bar-inner {
     display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+.news-bar-row {
+    display: flex;
     align-items: center;
     gap: 0.75rem;
     flex-wrap: wrap;
@@ -1693,10 +1698,18 @@ img { max-width: 100%; display: block; }
         <div class="news-bar">
             <div class="container">
                 <div class="news-bar-inner">
-                    <span class="news-bar-label">In the News</span>
-                    <a href="https://news.mit.edu/2026/creating-humble-ai-0324" class="news-bar-link" target="_blank" rel="noopener">
-                        MIT News: Creating humble AI, research aligned with BODHI's epistemic design principles &rarr;
-                    </a>
+                    <div class="news-bar-row">
+                        <span class="news-bar-label">In the News</span>
+                        <a href="https://news.mit.edu/2026/creating-humble-ai-0324" class="news-bar-link" target="_blank" rel="noopener">
+                            MIT News: Creating humble AI, research aligned with BODHI's epistemic design principles &rarr;
+                        </a>
+                    </div>
+                    <div class="news-bar-row">
+                        <span class="news-bar-label">Talk</span>
+                        <a href="https://www.neuromonster.org/schedule" class="news-bar-link" target="_blank" rel="noopener">
+                            NeuroMonster 2026: The BODHI Framework, Engineering and Testing Epistemic Virtues for Collaborative Intelligence in Clinical Decision Support. Max Lange, Sebasti&aacute;n Cajas Ordo&ntilde;ez, and Leo Celi &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
